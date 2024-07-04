@@ -8,8 +8,14 @@ const TutorialScreen = ({navigation}: {navigation: any}) => {
             <Text style={styles.titleText}>Tutorial</Text>
         </View>
       
+        <View style={styles.questionContainer}>
+            <Text style={styles.tutorialText}>A game has 10 questions</Text>
+            <Text style={styles.tutorialText}>Each questions lists a movie, video game, and song</Text>
+            <Text style={styles.tutorialText}>The movie, game, and song were all released in the same year</Text>
+            <Text style={styles.tutorialText}>Try to correctly guess the year</Text>
+        </View>
+
         <View style={styles.buttonContainer}>
-            <Text style={styles.title}>You made it to the Tutorial</Text>
             <Button title="BACK" onPress={() => navigation.navigate('Title', {name: 'Title'})}/>
         </View>
     </View>

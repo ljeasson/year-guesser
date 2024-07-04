@@ -8,8 +8,11 @@ const SettingsScreen = ({navigation}: {navigation: any}) => {
             <Text style={styles.titleText}>Settings</Text>
         </View>
       
+        <View style={styles.questionContainer}>
+            <Text style={styles.tutorialText}>Nothing here yet.  Check back later :)</Text>
+        </View>
+
         <View style={styles.buttonContainer}>
-            <Text style={styles.title}>You made it to the Settings</Text>
             <Button title="BACK" onPress={() => navigation.navigate('Title', {name: 'Title'})}/>
         </View>
     </View>
