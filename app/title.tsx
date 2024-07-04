@@ -1,10 +1,11 @@
 import { Button, Alert, StyleSheet, Image, Platform, Text, SafeAreaView, View } from "react-native";
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { Navigator } from "expo-router";
 
-const Separator = () => <View style={styles.separator} />;
+//const Separator = () => <View style={styles.separator} />;
 
-export default function index() {
+const TitleScreen = ({navigation}: {navigation: any}) => {
   return (
     <View style={{flex: 1}}>
       
@@ -16,16 +17,19 @@ export default function index() {
         <Button title="PLAY"      onPress={() => Alert.alert('Play Button pressed')}/>
         <Text style={styles.title}> Play a game of Year Guesser</Text>
       
-        <Button title="TUTORIAL"  color="#f194ff"  onPress={() => Alert.alert('Tutorial Button pressed')}/>
+        <Button title="TUTORIAL"  color="#f194ff"  onPress={() => navigation.navigate('Tutorial', {name: 'Tutorial'})}/>
         <Text style={styles.title}> Learn how to play Year Guesser</Text>
       
-        <Button title="SETTINGS"  color="#841584"  onPress={() => Alert.alert('Settings Button pressed')}/>
+        <Button title="SETTINGS"  color="#841584"  onPress={() => navigation.navigate('Settings', {name: 'Settings'})}/>
         <Text style={styles.title}> Adjust the settings</Text>
       </View>
 
     </View>
   );
 }
+export default TitleScreen;
+
+
 
 const styles = StyleSheet.create({
   baseText: {
@@ -41,12 +45,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 2,
     flexDirection: 'column',
-    //justifyContent: "center",
     marginVertical: 64,
     
   },
 
-  
   titleText: {
     fontSize: 48,
     fontWeight: 'bold',
