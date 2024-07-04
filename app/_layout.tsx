@@ -1,9 +1,9 @@
-//import { Stack, Tabs } from "expo-router";
+import { Tabs } from "expo-router";
 import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '@/app-example/(tabs)';
+
 import TitleScreen from './title';
 import TutorialScreen from './tutorial';
 import SettingsScreen from './settings';
