@@ -4,6 +4,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+// Initialize Stack of app pages
 import TitleScreen from './title';
 import TutorialScreen from './tutorial';
 import SettingsScreen from './settings';

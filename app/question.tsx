@@ -2,6 +2,57 @@ import React from 'react';
 import { Button, Text, View, TextInput, Alert } from "react-native";
 import styles from './_styles';
 
+////////////////////////////////////////////////////////////////////////////
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCUmGXXBQ6WWn_kjeW_Mwsm3NImxkACD0M",
+  authDomain: "year-guesser-data.firebaseapp.com",
+  databaseURL: "https://year-guesser-data-default-rtdb.firebaseio.com",
+  projectId: "year-guesser-data",
+  storageBucket: "year-guesser-data.appspot.com",
+  messagingSenderId: "606771513553",
+  appId: "1:606771513553:web:e1caa12c4cd71d70d01df0",
+  measurementId: "G-H6T295XD4X"
+};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Read data from database
+import { getDatabase, ref, onValue } from "firebase/database";
+
+const db = getDatabase();
+let movies = ""; let songs = ""; let games = ""; 
+let YEAR
+
+const movie_query = ref(db, 'Movies/1987/');        onValue(movie_query, (snapshot) => { movies = snapshot.val(); });
+const songs_query = ref(db, 'Songs/1987/');         onValue(songs_query, (snapshot) => { songs = snapshot.val(); });
+const games_query = ref(db, 'Video Games/1987/');   onValue(games_query, (snapshot) => { games = snapshot.val(); });
+
+let MOVIE = movies.slice(1,movies.length)[Math.floor(Math.random()*(movies.length-1))];//movies[Math.floor(Math.random()*movies.length)];
+let GAME = games.slice(1,games.length)[Math.floor(Math.random()*(games.length-1))];
+let SONG = songs.slice(1,songs.length)[Math.floor(Math.random()*(songs.length-1))];
+
+console.log(MOVIE)
+console.log(GAME)
+console.log(SONG)
+
+/*
+onValue(starCountRef, (snapshot) => {
+  const data = snapshot.val();
+  updateStarCount(postElement, data);
+});
+*/
+
+////////////////////////////////////////////////////////////////////////////
+
 const Question = ({navigation}: {navigation: any}) => {
     const [text, onChangeText] = React.useState('Useless Text');
     const [number, onChangeNumber] = React.useState('');
@@ -13,9 +64,9 @@ const Question = ({navigation}: {navigation: any}) => {
         </View>
 
         <View style={styles.questionContainer}>
-            <Text style={styles.questionText}>MOVIE:    The Avengers</Text>
-            <Text style={styles.questionText}>GAME:     Farcry 3</Text>
-            <Text style={styles.questionText}>SONG:     'Gangnam Style' by Psy</Text>
+            <Text style={styles.questionText}>MOVIE:    {MOVIE}</Text>
+            <Text style={styles.questionText}>GAME:     {GAME}</Text>
+            <Text style={styles.questionText}>SONG:     {SONG}</Text>
         </View>
       
         <View style={styles.buttonContainer}>
