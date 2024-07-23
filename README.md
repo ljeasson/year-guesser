@@ -6,8 +6,7 @@ Movie: *28 Days Later*
 Video Game: *Grand Theft Auto: Vice City*
 Song: "Complicated" by Avril Lavigne
 
-Answer
->! 2002
+> Answer: 2002
 
 ## Current Tech Stack
 React Native, Google Firebase, Ionic, Docker
