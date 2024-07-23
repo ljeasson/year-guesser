@@ -1,6 +1,14 @@
 # Welcome to Year Guesser
 The simple yet challenging mobile trivia game that quizzes you on the release years of your favorite movies, video games, and songs
 
+Example:  **What was the release year of**
+Movie: *28 Days Later*
+Video Game: *Grand Theft Auto: Vice City*
+Song: "Complicated" by Avril Lavigne
+
+Answer
+>! 2002
+
 ## Current Tech Stack
 React Native, Google Firebase, Ionic, Docker
 <!--
