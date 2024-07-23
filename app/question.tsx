@@ -32,17 +32,18 @@ const db = getDatabase();
 let movies = ""; let songs = ""; let games = ""; 
 let YEAR
 
-const movie_query = ref(db, 'Movies/1987/');        onValue(movie_query, (snapshot) => { movies = snapshot.val(); });
-const songs_query = ref(db, 'Songs/1987/');         onValue(songs_query, (snapshot) => { songs = snapshot.val(); });
-const games_query = ref(db, 'Video Games/1987/');   onValue(games_query, (snapshot) => { games = snapshot.val(); });
+const movie_query = ref(db, 'Movies/1988/');        onValue(movie_query, (snapshot) => { movies = snapshot.val(); });
+const songs_query = ref(db, 'Songs/1988/');         onValue(songs_query, (snapshot) => { songs = snapshot.val(); });
+const games_query = ref(db, 'Video Games/1988/');   onValue(games_query, (snapshot) => { games = snapshot.val(); });
 
-let MOVIE = movies.slice(1,movies.length)[Math.floor(Math.random()*(movies.length-1))];//movies[Math.floor(Math.random()*movies.length)];
-let GAME = games.slice(1,games.length)[Math.floor(Math.random()*(games.length-1))];
-let SONG = songs.slice(1,songs.length)[Math.floor(Math.random()*(songs.length-1))];
+//let MOVIE = movies.slice(1,movies.length)[Math.floor(Math.random()*(movies.length-1))];//movies[Math.floor(Math.random()*movies.length)];
+//let GAME = games.slice(1,games.length)[Math.floor(Math.random()*(games.length-1))];
+//let SONG = songs.slice(1,songs.length)[Math.floor(Math.random()*(songs.length-1))];
 
-console.log(MOVIE)
-console.log(GAME)
-console.log(SONG)
+console.log(movies)
+console.log(games)
+console.log(songs)
+
 
 /*
 onValue(starCountRef, (snapshot) => {
@@ -64,9 +65,9 @@ const Question = ({navigation}: {navigation: any}) => {
         </View>
 
         <View style={styles.questionContainer}>
-            <Text style={styles.questionText}>MOVIE:    {MOVIE}</Text>
-            <Text style={styles.questionText}>GAME:     {GAME}</Text>
-            <Text style={styles.questionText}>SONG:     {SONG}</Text>
+            <Text style={styles.questionText}>MOVIE:    {movies}</Text>
+            <Text style={styles.questionText}>GAME:     {games}</Text>
+            <Text style={styles.questionText}>SONG:     {songs}</Text>
         </View>
       
         <View style={styles.buttonContainer}>
